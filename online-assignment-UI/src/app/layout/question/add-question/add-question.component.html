@@ -1,0 +1,51 @@
+
+<form class="form-horizontal" #addQuestionForm="ngForm" (ngSubmit)="addQuestion()">
+
+
+  <div class="row">
+    <label class="col-md-3 control-label ">Choose Class</label>
+    <select id="grade" [(ngModel)]="question.subject.grade" name="grade">
+      <option value="">Choose Class</option>
+      <option *ngFor="let grade of grades" [ngValue]="grade">{{grade}}
+      </option>
+    </select>
+  </div>
+
+  <div class="row">
+    <label class="col-md-3 control-label ">Choose Faculty</label>
+    <select id="faculty" [(ngModel)]="question.subject.faculty" name="grade" (change)= changeSubject($event)>
+      <option value="">Choose Faculty</option>
+      <option *ngFor="let fac of faculty" [ngValue]="fac">{{fac}}
+      </option>
+    </select>
+  </div>
+
+  <div class="row">
+    <label class="col-md-3 control-label ">Choose Subject</label>
+    <select id="subject" [(ngModel)]="question.subject" name="subject">
+      <option value="">Choose Subject</option>
+      <option *ngFor="let subject of subjects" [ngValue]="subject">{{subject.name}}
+      </option>
+    </select>
+  </div>
+
+  <div class="row">
+    <label class="col-md-3 control-label ">Deadline</label>
+    <input [(ngModel)]="question.deadLine" name="deadline" type="date" placeholder="mm/dd/yyyy">
+</div> 
+
+  <div class="row">
+    <label class="col-md-3 control-label ">Add Question</label>
+    <textarea id="question" [(ngModel)]="question.name" name="question" placeholder="Ask Your Question">
+      </textarea>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="submitBtn"></label>
+    <div class="col-md-8">
+      <button type="submit" id="submitBtn" name="submitBtn" class="btn btn-success">Submit</button>
+      <a id="cancelBtn" routerLink="/dashboard" [routerLinkActive]="['router-link-active']" name="cancelBtn" class="btn btn-danger">Cancel</a>
+    </div>
+  </div>
+
+</form>

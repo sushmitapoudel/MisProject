@@ -1,0 +1,37 @@
+
+<form class="form-horizontal" #addSUbjectForm="ngForm" (ngSubmit)="addSubject()">
+
+
+    <div class="row">
+      <label class="col-md-3 control-label ">Choose Class</label>
+      <select id="grade" [(ngModel)]="subject.grade" name="grade">
+        <option value="">Choose Class</option>
+        <option *ngFor="let grade of grades" [ngValue]="grade">{{grade}}
+        </option>
+      </select>
+    </div>
+  
+    <div class="row">
+      <label class="col-md-3 control-label ">Choose Faculty</label>
+      <select id="faculty" [(ngModel)]="subject.faculty" name="faculty">
+        <option value="">Choose Faculty</option>
+        <option *ngFor="let fac of faculty" [ngValue]="fac">{{fac}}
+        </option>
+      </select>
+    </div>
+  
+    <div class="row">
+      <label class="col-md-3 control-label">Subject name</label>
+    <input type="text" [(ngModel)] = "subject.name" name="subject" placeholder="Subject"/>
+    </div>
+  
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="submitBtn"></label>
+      <div class="col-md-8">
+        <button type="submit" id="submitBtn" name="submitBtn" class="btn btn-success">Submit</button>
+        <a id="cancelBtn" routerLink="/dashboard" [routerLinkActive]="['router-link-active']" name="cancelBtn" class="btn btn-danger">Cancel</a>
+      </div>
+    </div>
+  
+  </form>
+  

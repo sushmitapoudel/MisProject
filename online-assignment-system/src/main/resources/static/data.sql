@@ -1,0 +1,2 @@
+INSERT INTO `online-assignment-system`.`user` (`address`, `email`, `first_name`, `last_name`, `password`, `role`, `username`)
+ VALUES ('ktm', 'admin@admin', 'admin', 'admin', 'admin', 'Admin', 'admin');

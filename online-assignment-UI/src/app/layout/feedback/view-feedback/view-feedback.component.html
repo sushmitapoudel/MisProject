@@ -1,0 +1,46 @@
+
+<h1 class="col-md-4" > Feedback</h1>
+<div class="row">
+        <label class="col-md-4 control-label ">Teacher</label>
+    </div>
+
+<div class="row">
+        <div class="col-md-1 control-label"></div>
+        <label class="col-md-4 control-label ">
+            {{ feedback.answer.question.teacher.user.firstName }}
+            {{ feedback.answer.question.teacher.user.lastName }}
+        </label>
+    </div>
+
+    <div class="row">
+        <label class="col-md-4 control-label ">Class</label>
+    </div>
+
+    <div class="row">
+        <div class="col-md-1 control-label"></div>
+        <label class="col-md-4 control-label ">{{
+                feedback?.answer?.question?.subject?.grade
+        }}</label>
+    </div>
+
+    <div class="row">
+            <label class="col-md-4 control-label ">Comment</label>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-1 control-label"></div>
+            <label class="col-md-4 control-label ">{{
+                    feedback.comment
+            }}</label>
+        </div>
+
+        <div class="row">
+                <label class="col-md-4 control-label ">Marks</label>
+            </div>
+        
+            <div class="row">
+                <div class="col-md-1 control-label"></div>
+                <label class="col-md-4 control-label ">{{
+                        feedback.marks
+                }}</label>
+            </div>

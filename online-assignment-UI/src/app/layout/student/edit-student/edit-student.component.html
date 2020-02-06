@@ -1,0 +1,158 @@
+<form class="form-horizontal" #editUser="ngForm" (ngSubmit)="updateStudent()">
+
+  <!-- Username-->
+  <div class="form-group">
+    <label class=" control-label" for="username">Username</label><span  *ngIf="username.errors?.required" style="color:red">*</span>
+    <div class="col-md-4">
+      <input id="username" pattern="^[a-zA-Z][A-Za-z]+\d*" #username="ngModel" [(ngModel)]=" student.user.username" name="username" placeholder="username" class="form-control input-md" required="" type="text">
+    </div>
+    <div *ngIf="username?.touched">
+      
+            <div class="text-danger" *ngIf="username.errors?.required"> name is required
+            </div>
+            <div class="text-danger" *ngIf="username.errors?.pattern"> invalid username
+            </div>
+          </div>
+  </div>
+
+  <!-- Password input-->
+  <div class="form-group">
+    <label class="control-label" for="password">Password</label> <span  *ngIf="password.errors?.required" style="color:red">*</span>
+    <div class="col-md-4">
+      <input id="password"pattern ="^[a-zA-Z0-9@-_. ]+$" #password="ngModel" [(ngModel)]=" student.user.password" name="password" placeholder="password" class="form-control input-md" required type="password">
+    </div>
+    <div *ngIf="password?.touched">
+      
+            <div class="text-danger" *ngIf="password.errors?.required"> name is required
+            </div>
+            <div class="text-danger" *ngIf="password.errors?.pattern"> password must contain alphabet symbol number
+            </div>
+          </div>
+  </div>
+  <!-- First Name-->
+  <div class="form-group">
+    <label class=" control-label" for="firstName">First name</label><span  *ngIf="firstName.errors?.required" style="color:red">*</span>
+    <div class="col-md-4">
+      <input id="firstName"  pattern="^[a-zA-Z]+$" #firstName="ngModel" [(ngModel)]=" student.user.firstName" name="firstName" placeholder="firstname" class="form-control input-md" required="" type="text">
+
+    </div>
+    <div *ngIf="firstName?.touched">
+      
+            <div class="text-danger" *ngIf="firstName.errors?.required"> name is required
+            </div>
+            <div class="text-danger" *ngIf="firstName.errors?.pattern"> invalid name
+            </div>
+          </div>
+  </div>
+  <!-- last Name-->
+  <div class="form-group">
+    <label class="control-label" for="lastName">Last name</label><span  *ngIf="lastName.errors?.required" style="color:red">*</span>
+    <div class="col-md-4">
+      <input id="lastName" pattern="^[a-zA-Z]+$" #lastName="ngModel" [(ngModel)]="student.user.lastName" name="lastName" placeholder="lastname" class="form-control input-md" required="" type="text">
+
+    </div>
+    <div *ngIf="lastName?.touched">
+      
+            <div class="text-danger" *ngIf="lastName.errors?.required"> last name is required
+            </div>
+            <div class="text-danger" *ngIf="lastName.errors?.pattern"> invalid name
+            </div>
+          </div>
+  </div>
+
+  <!-- Email-->
+  <div class="form-group">
+    <label class=" control-label" for="email">Email</label><span  *ngIf="email.errors?.required" style="color:red">*</span>
+    <div class="col-md-4">
+      <input id="email" [(ngModel)]=" student.user.email" #email="ngModel"
+      pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" name="email" placeholder="email" 
+      class="form-control input-md" required="" type="email">
+
+    </div>
+    <div *ngIf="email?.touched">
+      
+            <div class="text-danger" *ngIf="email.errors?.required"> email is required
+            </div>
+            <div class="text-danger" *ngIf="email.errors?.pattern"> invalid email
+            </div>
+          </div>
+  </div>
+
+  <!-- Address-->
+  <div class="form-group">
+    <label class=" control-label" for="address">Address</label><span  *ngIf="address.errors?.required" style="color:red">*</span>
+    <div class="col-md-4">
+      <input id="address" pattern="^[a-zA-Z]+$" [(ngModel)]=" student.user.address" #address="ngModel"  name="address" placeholder="address" class="form-control input-md" required="" type="text">
+
+    </div>
+    <div *ngIf="address?.touched">
+      
+            <div class="text-danger" *ngIf="address.errors?.required"> address is required
+            </div>
+            <div class="text-danger" *ngIf="address.errors?.pattern"> invalid address
+            </div>
+          </div>
+  </div>
+
+  <!-- Phone-->
+  <div class="form-group">
+    <label class=" control-label" for="phone">Phone no.</label><span  *ngIf="phone.errors?.required" style="color:red">*</span>
+    <div class="col-md-4">
+      <input id="phone" [(ngModel)]="student.user.phone" #phone="ngModel" name="phone" placeholder="0123456789" class="form-control input-md" required  pattern="^[0-9]+$" type="telephone">
+    </div>
+    <div *ngIf="phone?.touched">
+      
+            <div class="text-danger" *ngIf="phone.errors?.required"> Phone is required
+            </div>
+            <div class="text-danger" *ngIf="phone.errors?.pattern"> invalid phone
+            </div>
+          </div>
+  </div>
+
+
+
+     <!-- Roll No-->
+     <div class="form-group">
+        <label class=" control-label" for="roll">Roll No</label><span  *ngIf="roll.errors?.required" style="color:red">*</span>
+        <div class="col-md-4">
+          <input id="roll" [(ngModel)]="student.roll" #roll="ngModel" name="roll" placeholder="001" class="form-control input-md" required  pattern="^[0-9]+$" type="text">
+        </div>
+        <div *ngIf="roll?.touched">
+          
+                <div class="text-danger" *ngIf="roll.errors?.required"> Roll No. is required
+                </div>
+                <div class="text-danger" *ngIf="roll.errors?.pattern"> Invalid Roll No 
+                </div>
+              </div>
+      </div>
+
+      <div class="row">
+        <label class="col-md-3 control-label ">Choose Class</label>
+        <select id="grade" [(ngModel)]="student.grade" name="grade">
+          <option value="">Choose Class</option>
+          <option *ngFor="let grade of grades" [ngValue]="grade">{{grade}}
+          </option>
+        </select>
+      </div>
+
+        <!-- Faculty-->
+    <div class="row">
+      <label class=" col-md-3 control-label ">Choose Faculty</label>
+      <select id="faculty" [(ngModel)]="student.faculty" name="faculty">
+        <option value="">Choose Faculty</option>
+        <option *ngFor="let fac of faculty" [ngValue]="fac">{{fac}}
+        </option>
+      </select>
+    </div>
+
+  <!-- buttons -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="submitBtn"></label>
+    <div class="col-md-8">
+      <button id="submitBtn" name="submitBtn"  [disabled]="editUser.invalid" class="btn btn-success">Submit</button>
+      <a id="cancelBtn" routerLink="/student/list" [routerLinkActive]="['router-link-active']" name="cancelBtn" class="btn btn-danger">Cancel</a>
+    </div>
+  </div>
+
+
+</form>

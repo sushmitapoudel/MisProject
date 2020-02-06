@@ -1,0 +1,31 @@
+
+
+<form class="form-horizontal" #addFeedbackForm="ngForm" (ngSubmit)="addFeedback()">
+
+
+        <div class="row">
+          <label class="col-md-3 control-label ">Comment</label>
+          <textarea id="comment" [(ngModel)]="feedback.comment" name="comment"> </textarea>
+           
+        </div>
+      
+        <div class="row">
+          <label class="col-md-3 control-label ">Mark</label>
+          <select id="mark" [(ngModel)]="feedback.marks" name="grade">
+            
+            <option *ngFor="let mark of marks" [ngValue]="mark">{{mark}}
+            </option>
+          </select>
+        </div>
+    
+      
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="submitBtn"></label>
+          <div class="col-md-8">
+            <button type="submit" id="submitBtn" name="submitBtn" class="btn btn-success">Submit</button>
+            <button type ="button" id="cancelBtn" name="cancelBtn" class="btn btn-danger">Cancel</button>
+          </div>
+        </div>
+      
+      </form>
+      

@@ -1,0 +1,46 @@
+<div class="card-body table-responsive">
+    <div>
+         <ngx-datatable #table class="bootstrap" [rows]="rows" [loadingIndicator]="loadingIndicator" [columns]="columns" [columnMode]="'force'"
+            [headerHeight]="40" [footerHeight]="40" [limit]="10" [rowHeight]="'auto'" [reorderable]="reorderable">
+            <ngx-datatable-column name="S.N">
+                <ng-template let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                    {{rowIndex+1}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Teacher">
+                  <ng-template let-teacher="row" ngx-datatable-cell-template>
+                          {{teacher.teacher.user.firstName}} {{teacher.teacher.user.lastName}}
+                      </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Class">
+                  <ng-template let-grade="row" ngx-datatable-cell-template>
+                          {{grade.subject.grade}}
+                      </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Faculty">
+                  <ng-template let-faculty="row" ngx-datatable-cell-template>
+                          {{faculty.subject.faculty}}
+                      </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Subject">
+                  <ng-template let-subject="row" ngx-datatable-cell-template>
+                          {{subject.subject.name}}
+                      </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Dead Line">
+            <ng-template let-deadline="row" ngx-datatable-cell-template>
+                    {{deadline.deadLine}}
+                </ng-template>
+    </ngx-datatable-column>
+            
+            <ngx-datatable-column name="Action" prop="id" [sortable]="false">
+                <ng-template let-rowIndex="rowIndex" let-id="id" let-value="value" ngx-datatable-cell-template>
+                    <i class="fa fa-pencil-square-o" [routerLink]="['/product/editproduct/'+value]">
+                    </i>
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable> 
+
+    </div>
+</div>
+

@@ -1,0 +1,72 @@
+<div>
+        <h1 class="col-md-4" > Answer</h1>
+<div *ngIf="!student">
+     <div class="row" >
+        <label class="col-md-4 control-label ">Student</label>
+     </div>
+
+         <div class="row">
+        <div class="col-md-1 control-label"></div>
+        <label class="col-md-4 control-label ">
+            {{ assignment.student.user.firstName }}
+            {{ assignment.student.user.lastName }}
+        </label>
+        </div>
+ </div>
+
+    <div class="row">
+        <label class="col-md-4 control-label ">Class</label>
+    </div>
+
+    <div class="row">
+        <div class="col-md-1 control-label"></div>
+        <label class="col-md-4 control-label ">{{
+            assignment.question.subject.grade
+        }}</label>
+    </div>
+
+    <div class="row">
+        <label class="col-md-4 control-label ">Faculty</label>
+    </div>
+    <div class="row">
+        <div class="col-md-1 control-label "></div>
+        <label class="col-md-4 control-label ">{{
+            assignment.question.subject.faculty
+        }}</label>
+    </div>
+
+    <div class="row">
+        <label class="col-md-4 control-label ">Subject</label>
+    </div>
+    <div class="row">
+        <div class="col-md-1 control-label "></div>
+        <label class="col-md-4 control-label ">{{
+            assignment.question.subject.name
+        }}</label>
+    </div>
+
+    <div class="row">
+        <label class="col-md-4 control-label ">Question</label>
+    </div>
+    <div class="row">
+        <div class="col-md-1 control-label "></div>
+        <label class="col-md-4 control-label ">{{
+            assignment.question.name
+        }}</label>
+    </div>
+
+    <div class="row">
+        <label class="col-md-4 control-label ">Answer</label>
+    </div>
+    <div class="row">
+        <div class="col-md-1 control-label "></div>
+        <label class="col-md-4 control-label ">{{ assignment.value }}</label>
+    </div>
+</div>
+
+<!-- For feedback-->
+<hr />
+
+<app-add-feedback *ngIf ="!student" [answer]=assignment></app-add-feedback>
+
+ <app-view-feedback *ngIf ="student" [id]=id></app-view-feedback> 

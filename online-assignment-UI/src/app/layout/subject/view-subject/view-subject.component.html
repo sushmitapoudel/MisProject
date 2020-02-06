@@ -1,0 +1,17 @@
+<div class="card-body table-responsive">
+    <div>
+         <ngx-datatable #table class="bootstrap" [rows]="rows" [loadingIndicator]="loadingIndicator" [columns]="columns" [columnMode]="'force'"
+            [headerHeight]="40" [footerHeight]="40" [limit]="10" [rowHeight]="'auto'" [reorderable]="reorderable">
+            <ngx-datatable-column name="S.N">
+                <ng-template let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                    {{rowIndex+1}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name ="Name"></ngx-datatable-column>
+            <ngx-datatable-column name ="Grade"></ngx-datatable-column>
+            <ngx-datatable-column name ="Faculty"></ngx-datatable-column>
+        </ngx-datatable> 
+
+    </div>
+</div>
+
