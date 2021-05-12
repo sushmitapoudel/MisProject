@@ -30,7 +30,7 @@
     "@ngx-translate/core": "11.0.1",
     "@ngx-translate/http-loader": "4.0.0",
     "@swimlane/ngx-datatable": "^16.0.2",
-    "chart.js": "2.7.3",
+    "chart.js": "2.9.4",
     "core-js": "2.5.7",
     "datatables.net": "^1.10.20",
     "font-awesome": "4.7.0",
